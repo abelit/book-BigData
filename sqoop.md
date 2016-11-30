@@ -1,12 +1,10 @@
 # Apache Sqoop
 
-<<<<<<< HEAD
 ## 1. About Apache Sqoop
 Apache Sqoop(TM) is a tool designed for efficiently transferring bulk data between Apache Hadoop and structured datastores such as relational databases.
 =======
 ## About Apache Sqoop
 [Apache Sqoop(TM)](http://sqoop.apache.org/) is a tool designed for efficiently transferring bulk data between Apache Hadoop and structured datastores such as relational databases.
->>>>>>> 390f050218cb97de266a277c7f45f124d97df634
 
 [Apache Sqoop:](http://blog.fens.me/hadoop-family-roadmap/) 是一个用来将Hadoop和关系型数据库中的数据相互转移的工具，可以将一个关系型数据库（MySQL ,Oracle ,Postgres等）中的数据导进到Hadoop的HDFS中，也可以将HDFS的数据导进到关系型数据库中。
 
@@ -23,61 +21,55 @@ Download from [http://sqoop.apache.org](http://sqoop.apache.org/).
 ```
 # Hbase Environment
 export SQOOP_HOME=/home/hadoop/sqoop-1.99.7
+export SQOOP_CONF_DIR=${SQOOP_HOME}/conf
 export PATH=$PATH:${SQOOP_HOME}/bin
 ```
 
-### 2.4 Edit ```$HBASE_CONF_DIR/hbase-env.sh``` and add following contents
+### 2.4 Edit ```$HADOOP_CONF_DIR/core-site.xml``` and add following contents
 
 ```
-export JAVA_HOME=/home/hadoop/jdk1.8.0_112
-export HBASE_CLASSPATH=/home/hadoop/hadoop-2.7.3/conf
-export HBASE_LOG_DIR=${HBASE_HOME}/logs
-export HBASE_MANAGES_ZK=false
+<property>
+  	<name>hadoop.proxyuser.hadoop.hosts</name>
+  	<value>*</value>
+</property>
+<property>
+  	<name>hadoop.proxyuser.hadoop.groups</name>
+  	<value>*</value>
+</property>
 ```
 
-### 2.5 Edit ```$HBASE_CONF_DIR/hbase-site.xml```
+### 2.5 Edit ```$SQOOP_CONF_DIR/sqoop_bootstrap.properties```
 
 ```
-<configuration>
-    <property>
-        <name>hbase.rootdir</name>
-        <value>hdfs://master:9000/hbase</value>
-    </property>
-    <property>
-        <name>hbase.cluster.distributed</name>
-        <value>true</value>
-    </property>
-    <property>
-        <name>hbase.zookeeper.quorum</name>
-        <value>master,node1,node2</value>
-    </property>
-</configuration>
+sqoop.config.provider=org.apache.sqoop.core.PropertiesConfigurationProvider 
 ```
 
-### 2.6 Edit ```$HBASE_CONF_DIR/regionservers
+### 2.6 Edit ```$SQOOP_CONF_DIR/sqoop.properties```
 ```
-node1
-node2
+org.apache.sqoop.submission.engine.mapreduce.configuration.directory=/home/hadoop/hadoop-2.7.3/etc/hadoop  
+org.apache.sqoop.security.authentication.type=SIMPLE  
+org.apache.sqoop.security.authentication.handler=org.apache.sqoop.security.authentication.SimpleAuthenticationHandler  
+org.apache.sqoop.security.authentication.anonymous=true  
 ```
 
-### 2.7 Put hbase and ```.bashrc``` to the other nodes
-> scp -r hbase-1.2.4 hadoop@node1:.
+### 2.7 Put sqoop and ```.bashrc``` to the other nodes
+> scp -r sqoop-1.99.7 hadoop@node1:.
 >
-> scp -r hbase-1.2.4 hadoop@node2:.
+> scp -r sqoop-1.99.7 hadoop@node2:.
 > 
 > scp -r .bashrc hadoop@node1:.
 >
 > scp -r .bashrc hadoop@node2:.
 
-### 2.8 Manage Hbase Service
+### 2.8 Manage Sqoop Service
+* Verify sqoop
+> sqoop2-tool verify 
+
 * Startup service
-> $start-hbase.sh
+> $sqoop2-server start
 
 * Stop service 
-> $stop-hbase.sh
+> $sqoop2-server stop
 
-### 2.9 Run Hbase
-> $hbase shell
-
-## 3. Usage of Apache Hbase
+## 3. Usage of Apache Sqoop
 
