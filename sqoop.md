@@ -24,6 +24,9 @@ export SQOOP_HOME=/home/hadoop/sqoop-1.99.7
 export SQOOP_CONF_DIR=${SQOOP_HOME}/conf
 export PATH=$PATH:${SQOOP_HOME}/bin
 ```
+### Note:
+* Download MySQL JDBC Driver to $SQOOP_HOME/tools/lib
+> wget http://cdn.mysql.com/Downloads/Connector-J/mysql-connector-java-5.1.36.tar.gz
 
 ### 2.4 Edit ```$HADOOP_CONF_DIR/core-site.xml``` and add following contents
 
