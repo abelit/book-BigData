@@ -70,7 +70,7 @@ HADOOP_HOME=/home/hadoop/hadoop-2.7.3
 <configuration>
     <property>  
         <name>hive.metastore.uris</name>  
-        <value>thrift://hadoop-master:9083</value>  
+        <value>thrift://master:9083</value>  
     </property>
     <property>   
         <name>datanucleus.fixedDatastore</name>   

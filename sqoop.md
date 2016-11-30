@@ -1,9 +1,14 @@
 # Apache Sqoop
 
+<<<<<<< HEAD
 ## 1. About Apache Sqoop
 Apache Sqoop(TM) is a tool designed for efficiently transferring bulk data between Apache Hadoop and structured datastores such as relational databases.
+=======
+## About Apache Sqoop
+[Apache Sqoop(TM)](http://sqoop.apache.org/) is a tool designed for efficiently transferring bulk data between Apache Hadoop and structured datastores such as relational databases.
+>>>>>>> 390f050218cb97de266a277c7f45f124d97df634
 
-Apache Sqoop: 是一个用来将Hadoop和关系型数据库中的数据相互转移的工具，可以将一个关系型数据库（MySQL ,Oracle ,Postgres等）中的数据导进到Hadoop的HDFS中，也可以将HDFS的数据导进到关系型数据库中。
+[Apache Sqoop:](http://blog.fens.me/hadoop-family-roadmap/) 是一个用来将Hadoop和关系型数据库中的数据相互转移的工具，可以将一个关系型数据库（MySQL ,Oracle ,Postgres等）中的数据导进到Hadoop的HDFS中，也可以将HDFS的数据导进到关系型数据库中。
 
 ## 2. Apache Sqoop Installation
 ### 2.1 Download Sqoop
