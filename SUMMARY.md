@@ -10,4 +10,5 @@
 * [ZooKeeper](zookeeper.md)
 * [Mahout](mahout.md)
 * [PreInstallation](preinstallation.md)
+* [Eclipse](eclipse.md)
 
