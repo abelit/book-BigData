@@ -17,7 +17,7 @@ A fast and general compute engine for Hadoop data. Spark provides a simple and e
 
 ### 2.3 Edit `~/.bashrc` and add following contents
 
-.bashrc
+* .bashrc
 
 ```
 # Spark Environment
@@ -43,7 +43,7 @@ export PATH=$PATH:${SPARK_HOME}/bin:${SPARK_HOME}/sbin
 * spark-defaults.conf
   \`\`\`
 
-    ### 2.6 Edit ```slaves
+### 2.6 Edit `slaves`
 
 * slaves
   ```
@@ -78,6 +78,3 @@ http://master:8080
 ```
 
 ## 3. Usage of Apache Spark
-
-
-
