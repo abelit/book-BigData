@@ -9,7 +9,7 @@ A fast and general compute engine for Hadoop data. Spark provides a simple and e
 ### 2.1 Download Apache Spark
 
 * Download spark from [http://spark.apache.org](http://spark.apache.org/)
-  > wget [http://mirrors.hust.edu.cn/apache/spark/spark-2.0.2/spark-2.0.2-bin-hadoop2.7.tgz](http://mirrors.hust.edu.cn/apache/spark/spark-2.0.2/spark-2.0.2-bin-hadoop2.7.tgz)
+> wget [http://mirrors.hust.edu.cn/apache/spark/spark-2.0.2/spark-2.0.2-bin-hadoop2.7.tgz](http://mirrors.hust.edu.cn/apache/spark/spark-2.0.2/spark-2.0.2-bin-hadoop2.7.tgz)
 
 ### 2.2 Unpack to target folder
 
