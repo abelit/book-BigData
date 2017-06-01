@@ -18,7 +18,6 @@ A fast and general compute engine for Hadoop data. Spark provides a simple and e
 ### 2.3 Edit `~/.bashrc` and add following contents
 
 * .bashrc
-
 ```
 # Spark Environment
 export SPARK_HOME=/home/hadoop/spark-2.0.2-bin-hadoop2.7
@@ -41,7 +40,7 @@ export PATH=$PATH:${SPARK_HOME}/bin:${SPARK_HOME}/sbin
 ### 2.5 Edit `spark-defaults.conf`
 
 * spark-defaults.conf
-  \`\`\`
+
 
 ### 2.6 Edit `slaves`
 
