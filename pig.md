@@ -59,13 +59,13 @@ When running pig witch will enter grunt shell like `grunt>`.Noting that you can 
 
 > grunt&gt;
 
-```
-> a = LOAD '/input/README.md' as (line:chararray);
-> words = FOREACH a GENERATE flatten(TOKENIZE(line)) as w;
-> g = GROUP words by w;
-> wordcount = FOREACH g GENERATE group,COUNT(words);
-> dump wordcount;
-> ```
+  ```
+  a = LOAD '/input/README.md' as (line:chararray);
+  words = FOREACH a GENERATE flatten(TOKENIZE(line)) as w;
+  g = GROUP words by w;
+  wordcount = FOREACH g GENERATE group,COUNT(words);
+  dump wordcount;
+  ```
 
 * wordcount2\(带词频倒排序\)
 
