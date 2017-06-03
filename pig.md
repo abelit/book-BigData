@@ -59,23 +59,23 @@ When running pig witch will enter grunt shell like `grunt>`.Noting that you can 
 
 > grunt&gt;
 
-  ```
-  a = LOAD '/input/README.md' as (line:chararray);
-  words = FOREACH a GENERATE flatten(TOKENIZE(line)) as w;
-  g = GROUP words by w;
-  wordcount = FOREACH g GENERATE group,COUNT(words);
-  dump wordcount;
-  ```
+```
+a = LOAD '/input/README.md' as (line:chararray);
+words = FOREACH a GENERATE flatten(TOKENIZE(line)) as w;
+g = GROUP words by w;
+wordcount = FOREACH g GENERATE group,COUNT(words);
+dump wordcount;
+```
 
 * wordcount2\(带词频倒排序\)
 
-  ```
-  a = LOAD '/input/README.md' as (line:chararray);
-  words = FOREACH a GENERATE flatten(TOKENIZE(line)) as w;
-  g = GROUP words by w;
-  wordcount = FOREACH g GENERATE group,COUNT(words) as count;//给单词数所在列加一个别名count
-  r = foreach wordcount generate count,group;//将结果列交换，将变成{count，word}这种结构
-  g2 = group r by count;//按count分组
-  x = foreach g2 generate group,r.group;//去掉无用的列
-  y = order x by group desc;//按count倒排
-  ```
+```
+a = LOAD '/input/README.md' as (line:chararray);
+words = FOREACH a GENERATE flatten(TOKENIZE(line)) as w;
+g = GROUP words by w;
+wordcount = FOREACH g GENERATE group,COUNT(words) as count;//给单词数所在列加一个别名count
+r = foreach wordcount generate count,group;//将结果列交换，将变成{count，word}这种结构
+g2 = group r by count;//按count分组
+x = foreach g2 generate group,r.group;//去掉无用的列
+y = order x by group desc;//按count倒排
+```
