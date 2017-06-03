@@ -69,6 +69,8 @@ dump wordcount;
 
 * wordcount2\(带词频倒排序\)
 
+> grunt&gt;
+
 ```
 a = LOAD '/input/README.md' as (line:chararray);
 words = FOREACH a GENERATE flatten(TOKENIZE(line)) as w;
@@ -79,3 +81,6 @@ g2 = group r by count;//按count分组
 x = foreach g2 generate group,r.group;//去掉无用的列
 y = order x by group desc;//按count倒排
 ```
+
+
+
