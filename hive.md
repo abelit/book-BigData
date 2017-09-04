@@ -175,6 +175,10 @@ flush privileges;
 
   > hive&gt;show tables;
 
+* Insert data to the table
+
+* > insert into users values\(1,'abelit','ychenid@live.com'\);
+
 * Query data
 
   > select \* from users;
