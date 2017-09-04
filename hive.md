@@ -1,16 +1,21 @@
 # Apache Hive
 
 ## 1. About Apache Hive
+
 A data warehouse infrastructure that provides data summarization and ad hoc querying.The [Apache Hive ™ ](http://hive.apache.org/)data warehouse software facilitates reading, writing, and managing large datasets residing in distributed storage using SQL. Structure can be projected onto data already in storage. A command line tool and JDBC driver are provided to connect users to Hive.
 
 [Apache Hive:](http://blog.fens.me/hadoop-family-roadmap/) 是基于Hadoop的一个数据仓库工具，可以将结构化的数据文件映射为一张数据库表，通过类SQL语句快速实现简单的MapReduce统计，不必开发专门的MapReduce应用，十分适合数据仓库的统计分析。
 
 ## 2. Apache Hive Installation
+
 ### 2.1 Download Hive
+
 Download from [http://hive.apache.org](http://hive.apache.org).
-> wget http://mirrors.hust.edu.cn/apache/hive/hive-2.1.0/apache-hive-2.1.0-bin.tar.gz
+
+> wget [http://mirrors.hust.edu.cn/apache/hive/hive-2.1.0/apache-hive-2.1.0-bin.tar.gz](http://mirrors.hust.edu.cn/apache/hive/hive-2.1.0/apache-hive-2.1.0-bin.tar.gz)
 
 ### 2.2 Unpack to target folder
+
 > tar -zxvf apache-hive-2.1.0-bin.tar.gz
 
 ### 2.3 Edit ~/.bashrc and add following contents
@@ -22,16 +27,16 @@ export HIVE_CONF_DIR=${HIVE_HOME}/conf
 export PATH=$PATH:${HIVE_HOME}/bin
 ```
 
-### 2.4 Edit ```hive-env.sh```
+### 2.4 Edit `hive-env.sh`
 
 ```
 export HIVE_CONF_DIR=/home/hadoop/apache-hive-2.1.0-bin/conf
 HADOOP_HOME=/home/hadoop/hadoop-2.7.3
 ```
 
-### 2.4 Edit ```hive-site.xml```
+### 2.4 Edit `hive-site.xml`
 
-* Configure ```hive-site.xml```  based derby.
+* Configure `hive-site.xml`  based derby.
 
 ```
 <configuration>
@@ -64,7 +69,7 @@ HADOOP_HOME=/home/hadoop/hadoop-2.7.3
 </configuration>
 ```
 
-* Configure ```hive-site.xml```  based on mysql.
+* Configure `hive-site.xml`  based on mysql.
 
 ```
 <configuration>
@@ -110,53 +115,69 @@ HADOOP_HOME=/home/hadoop/hadoop-2.7.3
     </property>
 </configuration>
 ```
+
 ### Note:
 
 If you configure hive based on mysql,please make sure that install mysql-server and creating database for storing hive metastore data.
 
-* Install MySQL(Ubuntu)
-> sudo apt-get install mysql-server mysql-client
+* Install MySQL\(Ubuntu\)
+
+  > sudo apt-get install mysql-server mysql-client
 
 * Login MySQL and Create database
-> mysql -u root -p
+
+  > mysql -u root -p
 
 ```
 create user 'hive'@'%' identified by 'hive';
 grant all on hive.* to hive@'%'  identified by 'hive';  
-flush privileges;  
+flush privileges;
 ```
 
 > mysql -uhive -p
 
-```create database hive;```
+`create database hive;`
 
-* Download MySQL JDBC Driver to $HIVE_HOME/lib
-> wget http://cdn.mysql.com/Downloads/Connector-J/mysql-connector-java-5.1.36.tar.gz
+* Download MySQL JDBC Driver to $HIVE\_HOME/lib
+  > wget [http://cdn.mysql.com/Downloads/Connector-J/mysql-connector-java-5.1.36.tar.gz](http://cdn.mysql.com/Downloads/Connector-J/mysql-connector-java-5.1.36.tar.gz)
 
 ### 2.6 Run Hive
 
 * Initial hive database metastore based on derby.
-> schematool -initSchema -dbType derby
+
+  > schematool -initSchema -dbType derby
 
 * Initial hive database metastore based on mysql.
-> schematool -initSchema -dbType mysql
 
-* Startup metastore service using following cmd or ``` hive --service metastore &```
-> $nohup hive --service metastore >hive_metastore.run.log 2>&1 &
+  > schematool -initSchema -dbType mysql
+
+* Startup metastore service using following cmd or `hive --service metastore &`
+
+  > $nohup hive --service metastore &gt;hive\_metastore.run.log 2&gt;&1 &
 
 * Run hive
-> $hive
+
+  > $hive
 
 ## 3. Usage of Apache Hive
+
 ### 3.1 Basic Command
+
 * List all databases
-> hive>show databases;
+
+  > hive&gt;show databases;
 
 * Create tables
-> hive>create table test(id int, name string, email string);
+
+  > hive&gt;create table users\(id int, name string, email string\);
 
 * List all tables
-> hive>show tables;
+
+  > hive&gt;show tables;
 
 * Query data
-> select * from test;
+
+  > select \* from test;
+
+
+
