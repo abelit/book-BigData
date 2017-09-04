@@ -1,4 +1,4 @@
-# Apache Hive
+* # Apache Hive
 
 ## 1. About Apache Hive
 
