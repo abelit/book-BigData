@@ -213,10 +213,14 @@ http://master:8088
 
   > bin/hadoop dfs -ls /
   
-* create hdfs directory
+* Create hdfs directory
 
   > bin/hadoop dfs -mkdir /input
   > bin/hadoop dfs -mkdir /input/wordcount
+  
+* Change permissions of hdfs directory
+
+  > bin/hadoop dfs -chmod -R 777 /input
   
 * Put files to hdfs directory
 
