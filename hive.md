@@ -177,7 +177,7 @@ flush privileges;
 
 * Query data
 
-  > select \* from test;
+  > select \* from users;
 
 
 
