@@ -3,6 +3,7 @@
 ## 1. About Hadoop
 
 #### What Is Apache Hadoop?
+
 The[ Apache™ Hadoop®](http://hadoop.apache.org/) project develops open-source software for reliable, scalable, distributed computing.
 
 The Apache Hadoop software library is a framework that allows for the distributed processing of large data sets across clusters of computers using simple programming models. It is designed to scale up from single servers to thousands of machines, each offering local computation and storage. Rather than rely on hardware to deliver high-availability, the library itself is designed to detect and handle failures at the application layer, so delivering a highly-available service on top of a cluster of computers, each of which may be prone to failures.
@@ -10,22 +11,24 @@ The Apache Hadoop software library is a framework that allows for the distribute
 The project includes these modules:
 
 * Hadoop Common: The common utilities that support the other Hadoop modules.
-* Hadoop Distributed File System (HDFS™): A distributed file system that provides high-throughput access to application data.
+* Hadoop Distributed File System \(HDFS™\): A distributed file system that provides high-throughput access to application data.
 * Hadoop YARN: A framework for job scheduling and cluster resource management.
 * Hadoop MapReduce: A YARN-based system for parallel processing of large data sets.
 
-[Apache Hadoop:](http://blog.fens.me/hadoop-family-roadmap/) 是Apache开源组织的一个分布式计算开源框架，提供了一个分布式文件系统子项目(HDFS)和支持MapReduce分布式计算的软件架构。
+[Apache Hadoop:](http://blog.fens.me/hadoop-family-roadmap/) 是Apache开源组织的一个分布式计算开源框架，提供了一个分布式文件系统子项目\(HDFS\)和支持MapReduce分布式计算的软件架构。
 
 ## 2. Hadoop Installation
+
 ### 2.1 Download Hadoop
+
 * Download from [http://hadoop.apache.org](http://hadoop.apache.org/)
-> wget http://mirrors.hust.edu.cn/apache/hadoop/common/hadoop-2.7.3/hadoop-2.7.3.tar.gz
+  > wget [http://mirrors.hust.edu.cn/apache/hadoop/common/hadoop-2.7.3/hadoop-2.7.3.tar.gz](http://mirrors.hust.edu.cn/apache/hadoop/common/hadoop-2.7.3/hadoop-2.7.3.tar.gz)
 
 ### 2.2 Unpack to target folder
 
 > tar -zxvf hadoop-2.7.3.tar.gz
 
-### 2.3 Edit ```~/.bashrc``` and add following contents
+### 2.3 Edit `~/.bashrc` and add following contents
 
 ```
 # Hadoop Environment
@@ -40,26 +43,32 @@ export YARN_CONF_DIR=${HADOOP_HOME}/etc/hadoop
 export PATH=$PATH:${HADOOP_HOME}/bin:${HADOOP_HOME}/sbin
 ```
 
-### 2.4 Edit ```hadoop-env.sh, mapred-env.sh, yarn-env.sh```
+### 2.4 Edit `hadoop-env.sh, mapred-env.sh, yarn-env.sh`
+
 * hadoop-env.sh
-```
-export JAVA_HOME=/home/hadoop/jdk1.8.0_112
-```
+
+  ```
+  export JAVA_HOME=/home/hadoop/jdk1.8.0_112
+  ```
 
 * mapred-env.sh
-```
-export JAVA_HOME=/home/hadoop/jdk1.8.0_112
-```
+
+  ```
+  export JAVA_HOME=/home/hadoop/jdk1.8.0_112
+  ```
 
 * yarn-env.sh
-```
-export JAVA_HOME=/home/hadoop/jdk1.8.0_112
-```
 
-### 2.5 Edit ```core-site.xml, hdfs-site.xml, mapred-site.xml, yarn-site.xml```
+  ```
+  export JAVA_HOME=/home/hadoop/jdk1.8.0_112
+  ```
+
+### 2.5 Edit `core-site.xml, hdfs-site.xml, mapred-site.xml, yarn-site.xml`
+
 * core-site.xml
-```
-<configuration>
+
+  ```
+  <configuration>
     <property>
         <name>fs.defaultFS</name>
         <value>hdfs://master:9000</value>
@@ -68,12 +77,13 @@ export JAVA_HOME=/home/hadoop/jdk1.8.0_112
         <name>hadoop.tmp.dir</name>
         <value>file:/home/hadoop/hadoop-2.7.3/tmp</value>
     </property>
-</configuration>
-```
+  </configuration>
+  ```
 
 * hdfs-site.xml
-```
-<configuration>
+
+  ```
+  <configuration>
     <property>
         <name>dfs.replication</name>
         <value>2</value>
@@ -90,12 +100,13 @@ export JAVA_HOME=/home/hadoop/jdk1.8.0_112
         <name>dfs.datanode.data.dir</name>
         <value>file:/home/hadoop/hadoop-2.7.3/hdfs/data</value>
     </property>
-</configuration>
-```
+  </configuration>
+  ```
 
 * mapred-site.xml
-```
-<configuration>
+
+  ```
+  <configuration>
     <property>
         <name>mapreduce.framework.name</name>
         <value>yarn</value>
@@ -108,19 +119,20 @@ export JAVA_HOME=/home/hadoop/jdk1.8.0_112
         <name>mapreduce.jobhistory.webapp.address</name>
         <value>master:19888</value>
     </property>
-</configuration>
-```
+  </configuration>
+  ```
 
 * yarn-site.xml
-```
-<configuration>
-<!-- Site specific YARN configuration properties -->
-<!--
+
+  ```
+  <configuration>
+  <!-- Site specific YARN configuration properties -->
+  <!--
     <property>
         <name>yarn.resourcemanager.hostname</name>
         <value>master</value>
     </property>
--->
+  -->
     <property>
         <name>yarn.nodemanager.aux-services</name>
         <value>mapreduce_shuffle</value>
@@ -145,43 +157,46 @@ export JAVA_HOME=/home/hadoop/jdk1.8.0_112
         <name>yarn.resourcemanager.admin.address</name>
         <value>master:8033</value>
     </property>
-<!--
+  <!--
     <property>
         <name>yarn.resourcemanager.webapp.address</name>
         <value>master:8088</value>
     </property>
--->
-</configuration>
-```
+  -->
+  </configuration>
+  ```
 
 ### 2.6 Edit slaves
 
 * slaves
-```
-node1
-node2
-```
+  ```
+  node1
+  node2
+  ```
 
 ### 2.7 Put hadoop to the other nodes
 
 > scp -r hadoop-2.7.3 hadoop@node1:.
 >
 > scp -r hadoop-2.7.3 hadoop@node2:.
-> 
+>
 > scp -r .bashrc hadoop@node1:.
 >
 > scp -r .bashrc hadoop@node2:.
 
-
 ### 2.8 Formart namenode
+
 > hdfs namenode -format
 
 ### 2.9 Manage hadoop service
+
 * Startup service
-> $HADOOP_HOME/sbin/start-all.sh
+
+  > $HADOOP\_HOME/sbin/start-all.sh
 
 * Query hadoop status
-> jps
+
+  > jps
 
 * Query hadoop service by web-ui
 
@@ -189,4 +204,8 @@ node2
 http://master:50070
 http://master:8088
 ```
+
 ## 3. Usage of Hadoop
+
+
+
