@@ -114,7 +114,6 @@ export JAVA_HOME=/home/hadoop/jdk1.8.0_112
 * yarn-site.xml
 ```
 <configuration>
-
 <!-- Site specific YARN configuration properties -->
 <!--
     <property>
