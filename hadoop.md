@@ -211,7 +211,7 @@ http://master:8088
 
 * List hfs directory
 
-* > bin/hadoop dfs -ls /
+  > bin/hadoop dfs -ls /
 
 
 
