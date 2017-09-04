@@ -210,6 +210,7 @@ http://master:8088
 ### 3.1 Basic Operation
 
 * List hfs directory
+
 * > bin/hadoop dfs -ls /
 
 
