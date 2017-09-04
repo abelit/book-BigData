@@ -183,5 +183,7 @@ flush privileges;
 
   > select \* from users;
 
+* Query file's contents on the hdfs
 
+  > bin/hadoop dfs -cat /user/hive/warehouse/users/000000_0
 
