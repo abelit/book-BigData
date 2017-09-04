@@ -209,9 +209,24 @@ http://master:8088
 
 ### 3.1 Basic Operation
 
-* List hfs directory
+* List hdfs directory
 
   > bin/hadoop dfs -ls /
+  
+* create hdfs directory
 
+  > bin/hadoop dfs -mkdir /input
+  > bin/hadoop dfs -mkdir /input/wordcount
+  
+* Put files to hdfs directory
 
+  > bin/hadoop dfs -put README.txt /input/wordcount
+
+* Query contents of file based on hsdf
+
+  > bin/hadoop dfs -cat /input/wordcount/README.txt
+  
+* Execute hadoop mapreduce job to count words
+
+  > bin/hadoop jar share/hadoop/mapreduce/hadoop-mapreduce-examples-2.7.3.jar wordcount /input/wordcount/ /output/wordcount
 
