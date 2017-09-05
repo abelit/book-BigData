@@ -187,3 +187,8 @@ flush privileges;
 
   > bin/hadoop dfs -cat /user/hive/warehouse/users/000000_0
 
+### 3.2 Load data to hive
+
+* Load local data to hive
+
+  > create table a_qyzt (nbxh string,qymc string,qylx string, djjg string) row format delimited fields terminated by ',' stored as textfile;
