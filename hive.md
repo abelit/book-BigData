@@ -191,17 +191,18 @@ flush privileges;
 
 * Load local data to hive
 
-```
-hive> create table a_qyzt (nbxh string,qymc string,qylx string, djjg string) row format delimited fields terminated by ',' stored as textfile;
-hive> load data local inpath './export.csv' into table a_qyzt;
-hive> select count(\*) from a_qyzt where djjg like '520101%';
-hive> select djjg,count(*) from a_qyzt group by djjg;
-```
+  > hive&gt; create table a_qyzt (nbxh string,qymc string,qylx string, djjg string) row format delimited fields terminated by ',' stored as textfile;
+
+  > hive&gt; load data local inpath './export.csv' into table a_qyzt;
+
+  > hive&gt; select count(\*) from a_qyzt where djjg like '520101%';
+
+  > hive&gt; select djjg,count(*) from a_qyzt group by djjg;
 
 * Load hdfs data to hive
 
   > hive&gt; load data inpath '/input/export.csv' into table a_qyzt;
-  
+
 * Insert data to hive from other table
 
   > hive&gt; create table a_qyzt_new (nbxh string,qymc string,qylx string, djjg string) row format delimited fields terminated by ',' stored as textfile;
