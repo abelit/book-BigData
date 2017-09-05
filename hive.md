@@ -200,5 +200,7 @@ hive> select djjg,count(*) from a_qyzt group by djjg;
 
 * Load hdfs data to hive
 
-  > load data inpath '/input/export.csv' into table a_qyzt;
+    > load data inpath '/input/export.csv' into table a_qyzt;
+ 
+
 
