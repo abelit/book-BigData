@@ -165,36 +165,38 @@ flush privileges;
 
 * List all databases
 
-  > hive&gt;show databases;
+  > hive&gt; show databases;
 
 * Create tables
 
-  > hive&gt;create table users\(id int, name string, email string\);
+  > hive&gt; create table users\(id int, name string, email string\);
 
 * List all tables
 
-  > hive&gt;show tables;
+  > hive&gt; show tables;
 
 * Insert data to the table
 
-  > hive&gt;insert into users values\(1,'abelit','ychenid@live.com'\);
- 
+  > hive&gt; insert into users values\(1,'abelit','ychenid@live.com'\);
+
 * Query data
 
-  > hive&gt;select \* from users;
+  > hive&gt; select \* from users;
 
 * Query file's contents on the hdfs
 
-  > hive&gt;bin/hadoop dfs -cat /user/hive/warehouse/users/000000_0
+  > hive&gt; bin/hadoop dfs -cat /user/hive/warehouse/users/000000\_0
 
 ### 3.2 Load data to hive
 
 * Load local data to hive
 
 ```
-create table a_qyzt (nbxh string,qymc string,qylx string, djjg string) row format delimited fields terminated by ',' stored as textfile; 
-load data local inpath './export.csv' into table a_qyzt;
-select count(\*) from a_qyzt where djjg like '520101%';
-select djjg,count(*) from a_qyzt group by djjg; 
+hive> create table a_qyzt (nbxh string,qymc string,qylx string, djjg string) row format delimited fields terminated by ',' stored as textfile; 
+hive> load data local inpath './export.csv' into table a_qyzt;
+hive> select count(\*) from a_qyzt where djjg like '520101%';
+hive> select djjg,count(*) from a_qyzt group by djjg;
 ```
-    
+
+
+
