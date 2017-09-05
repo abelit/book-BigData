@@ -201,3 +201,9 @@ hive> select djjg,count(*) from a_qyzt group by djjg;
 * Load hdfs data to hive
 
   > hive&gt; load data inpath '/input/export.csv' into table a_qyzt;
+
+* Insert data to hive from other table
+
+  > hive&gt; create table a_qyzt_new (nbxh string,qymc string,qylx string, djjg string) row format delimited fields terminated by ',' stored as textfile;
+
+  > hive&gt; insert overwrite table a_qyzt_new select nbxh,qymc,qylc,djjg from a_qyzt;
