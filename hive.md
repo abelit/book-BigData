@@ -187,7 +187,7 @@ flush privileges;
 
   > hive&gt; bin/hadoop dfs -cat /user/hive/warehouse/users/000000\_0
 
-### 3.2 Load data to hive
+### 3.2 Import data to hive
 
 * Load local data to hive
 
@@ -197,7 +197,7 @@ flush privileges;
 
   > hive&gt; select count(\*) from a_qyzt where djjg like '520101%';
 
-  > hive&gt; select djjg,count(*) from a_qyzt group by djjg;
+  > hive&gt; select djjg,count(\*) from a_qyzt group by djjg;
 
 * Load hdfs data to hive
 
@@ -207,4 +207,18 @@ flush privileges;
 
   > hive&gt; create table a_qyzt_new (nbxh string,qymc string,qylx string, djjg string) row format delimited fields terminated by ',' stored as textfile;
 
-  > hive&gt; insert overwrite table a_qyzt_new select nbxh,qymc,qylc,djjg from a_qyzt;
+  > hive&gt; insert overwrite table a_qyzt_new select nbxh,qymc,qylx,djjg from a_qyzt;
+
+* Create table from other table
+
+  > create table a_qyzt_new select nbxh,qymc,qylx,djjg from a_qyzt
+
+### 3.3 Export data from hive
+
+* Export hive data to local
+
+  > insert overwrite local directory '/home/hadoop/export' select nbxh,qymc,qylx,djjg from a_qyzt;
+
+* Export hive data to hdfs
+
+  > insert overwrite directory 'home/input/export' select nbxh,qymc,qylx,djjg from a_qyzt;
