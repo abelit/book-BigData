@@ -191,6 +191,6 @@ flush privileges;
 
 * Load local data to hive
 
-    > create table a_qyzt (nbxh string,qymc string,qylx string, djjg string) row format delimited fields terminated by ',' stored as textfile;
+  > create table a_qyzt (nbxh string,qymc string,qylx string, djjg string) row format delimited fields terminated by ',' stored as textfile;
      
     
