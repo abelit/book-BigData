@@ -198,7 +198,7 @@ hive> select count(\*) from a_qyzt where djjg like '520101%';
 hive> select djjg,count(*) from a_qyzt group by djjg;
 ```
 
-* load hdfs data to hive
+* Load hdfs data to hive
 
   > hive&gt; load data inpath '/input/export.csv' into table a_qyzt;
 
