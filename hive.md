@@ -192,9 +192,7 @@ flush privileges;
 * Load local data to hive
 
   > create table a_qyzt (nbxh string,qymc string,qylx string, djjg string) row format delimited fields terminated by ',' stored as textfile;
-  
   > load data local inpath './export.csv' into table a_qyzt;
-  
   > select count(\*) from a_qyzt where djjg like '520101';
      
     
